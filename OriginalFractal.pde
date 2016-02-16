@@ -14,11 +14,14 @@ public void draw()
 public void fractal(int x, int y, int len)
 {
 	noFill();
-	// if()
-	// {
-
-	// }
-	// else
+	if(len < 400)
+	{
+			fractal(x, y, len);
+			fractal(x+x/len , y , len/(2/3));
+	}
+	else
+	{
 		triangle(x, y, x+len, y, x+(len/2), y-((len/2)*sqrt(3)));
-		triangle(x, y/4, x+len, y/4, x+(len/2), y+((len/2)*sqrt(3)));
+		triangle(x, y-((len/3)*sqrt(3)), x+len, y-((len/3)*sqrt(3)), x+(len/2), y+((len/2)/sqrt(3)));
+	}
 }
